@@ -20,11 +20,14 @@ function App() {
   return (
     <>
       <Routes>
+        {/* Client */}
         <Route path={PATH.HOME_PAGE} element={<ClientLayout />}>
           <Route index element={<Home />} />
         </Route>
+        {/* Login & Register */}
         <Route path={PATH.LOGIN} element={<Login />} />
         <Route path={PATH.REGISTER} element={<Register />} />
+        {/* Admin */}
         <Route path={ADMIN_PATH.HOME_PAGE} element={<AdminLayout/>}>
           <Route index element={<Dashboard/>}/>
           <Route path={ADMIN_PATH.STUDENT} element={<ManageStudent/>}/>
