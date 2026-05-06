@@ -1,0 +1,37 @@
+.form-check-input:checked {
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+}
+
+.form-check-input {
+  width: 2.5em !important;
+  height: 1.25em !important;
+  cursor: pointer;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.cursor-pointer:hover {
+  background-color: #f8f9fa !important;
+}
+
+.placeholder-white-50::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.hover-white-op-20:hover {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.custom-switch-dark .form-check-input {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.custom-switch-dark .form-check-input:checked {
+  background-color: #fff;
+  border-color: #fff;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%230d6efd'/%3e%3c/svg%3e");
+}
