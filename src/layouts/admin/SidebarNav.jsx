@@ -1,29 +1,59 @@
 import {
   AppWindow,
   Bell,
+  CalendarCheck,
+  ChartBarStacked,
   ChevronLeft,
   ChevronRight,
   Command,
   CreditCard,
   HelpCircle,
   LayoutDashboard,
+  MailQuestionMark,
   Package,
   Search,
   Settings,
   ShoppingCart,
+  Star,
   Users,
+  UsersRound,
   Zap,
 } from "lucide-react";
 import { Badge, Form, InputGroup, Nav } from "react-bootstrap";
 import "../../style/admin/SidebarNav.css";
+import { NavLink } from "react-router-dom";
+import { ADMIN_PATH } from "../../constants/path";
 
 export default function SidebarNav({ isCollapsed, setIsCollapsed }) {
   const menuItems = [
-    { icon: <LayoutDashboard size={20} />, label: "Dashboard" },
-    { icon: <ShoppingCart size={20} />, label: "Orders", active: true },
-    { icon: <Package size={20} />, label: "Inventory" },
-    { icon: <CreditCard size={20} />, label: "Payments" },
-    { icon: <Users size={20} />, label: "Customers" },
+    {
+      icon: <LayoutDashboard size={20} />,
+      label: "Dashboard",
+      path: ADMIN_PATH.HOME_PAGE,
+    },
+    {
+      icon: <UsersRound size={20} />,
+      label: "Students",
+      path: ADMIN_PATH.STUDENT,
+    },
+
+    {
+      icon: <ChartBarStacked size={20} />,
+      label: "Categories",
+      path: ADMIN_PATH.CATEGORY,
+    },
+
+    { icon: <Star size={20} />, label: "Reviews", path: ADMIN_PATH.REVIEW },
+    {
+      icon: <CalendarCheck size={20} />,
+      label: "Schedule",
+      path: ADMIN_PATH.SCHEDULE,
+    },
+    {
+      icon: <MailQuestionMark size={20} />,
+      label: "Question",
+      path: ADMIN_PATH.QUESTION,
+    },
   ];
   const bottomItems = [
     { icon: <HelpCircle size={20} />, label: "Help & support" },
@@ -46,19 +76,21 @@ export default function SidebarNav({ isCollapsed, setIsCollapsed }) {
       </div>
       <Nav className="flex-column px-2 ">
         {menuItems.map((item, index) => (
-          <Nav.Link
+          <NavLink
+            to={item.path}
             key={index}
             className={`nav-item-custom ${item.active ? "active" : ""}`}
           >
             {item.icon}
             {!isCollapsed && <span className="ms-3">{item.label}</span>}
-          </Nav.Link>
+          </NavLink>
         ))}
 
         <hr className="text-secondary my-4 opacity-25" />
 
         {bottomItems.map((item, index) => (
-          <Nav.Link
+          <NavLink
+            to={item.path}
             key={index}
             className="nav-item-custom d-flex justify-content-between align-items-center"
           >
@@ -66,7 +98,7 @@ export default function SidebarNav({ isCollapsed, setIsCollapsed }) {
               {item.icon}
               {!isCollapsed && <span className="ms-3">{item.label}</span>}
             </div>
-          </Nav.Link>
+          </NavLink>
         ))}
       </Nav>
     </div>
