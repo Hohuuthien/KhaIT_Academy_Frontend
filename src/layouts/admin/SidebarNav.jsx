@@ -79,7 +79,7 @@ export default function SidebarNav({ isCollapsed, setIsCollapsed }) {
           <NavLink
             to={item.path}
             key={index}
-            className={`nav-item-custom ${item.active ? "active" : ""}`}
+            className={`nav-item-custom ${item.active ? "active" : ""} text-decoration-none`}
           >
             {item.icon}
             {!isCollapsed && <span className="ms-3">{item.label}</span>}
